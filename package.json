@@ -1,0 +1,27 @@
+{
+  "name": "vue-swing",
+  "version": "0.0.1",
+  "description": "Vue.js wrapper for Swing",
+  "main": "VueSwing.vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goweiwen/vue-swing.git"
+  },
+  "keywords": [
+    "vue",
+    "swing",
+    "swipe",
+    "cards",
+    "swipeable"
+  ],
+  "author": "Goh Wei Wen <goweiwen@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goweiwen/vue-swing/issues"
+  },
+  "homepage": "https://github.com/goweiwen/vue-swing#readme",
+  "peerDependencies": {
+    "swing": "~3.0.0",
+    "vue": "~2.0.0"
+  }
+}
