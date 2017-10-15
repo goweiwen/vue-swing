@@ -12,35 +12,45 @@ export default {
 
   props: ['config'],
 
-  mounted () {
-    const stack = Swing.Stack(this.config || {})
+  data () {
+    return {
+      stack: null,
+      cards: [],
+      observer: null
+    }
+  },
 
-    const cards = []
+  mounted () {
+    this.stack = Swing.Stack(this.config || {})
     for (let el of this.$el.children) {
-      cards.push(stack.createCard(el))
+      this.cards.push(this.stack.createCard(el))
     }
 
+    // Observe changes in DOM
+    this.observer = new MutationObserver(mutations => {
+      mutations.forEach(({ addedNodes }) =>
+        addedNodes.forEach(el => this.cards.push(this.stack.createCard(el)))
+      )
+    })
+    this.observer.observe(this.$el, { childList: true })
+
+    // Register events
     const events = [
-      'throwout',
-      'throwoutend',
-      'throwoutdown',
-      'throwoutleft',
-      'throwoutright',
-      'throwoutup',
-      'throwin',
-      'throwinend',
-      'dragstart',
-      'dragmove',
-      'dragend',
+      'throwout', 'throwoutend', 'throwoutdown', 'throwoutleft', 'throwoutright',
+      'throwoutup', 'throwin', 'throwinend', 'dragstart', 'dragmove', 'dragend',
       'destroyCard'
     ]
 
     for (let event of events) {
-      stack.on(event, e => {
+      this.stack.on(event, e => {
         this.$emit(event, e)
       })
     }
   },
+
+  beforeDestroy () {
+    this.observer.disconnect()
+  }
 }
 </script>
 
