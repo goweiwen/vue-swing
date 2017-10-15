@@ -1,0 +1,4 @@
+semi: false
+single-quote: true
+bracket-spacing: true
+space-before-function-paren: true
