@@ -10,7 +10,7 @@ const Swing = require('swing')
 export default {
   name: 'vue-swing',
 
-  props: ['config']
+  props: ['config'],
 
   mounted () {
     const stack = Swing.Stack(this.config || {})

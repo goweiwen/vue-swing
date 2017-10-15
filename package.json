@@ -1,6 +1,6 @@
 {
   "name": "vue-swing",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Vue.js wrapper for Swing",
   "main": "index.js",
   "repository": {
@@ -21,8 +21,8 @@
   },
   "homepage": "https://github.com/goweiwen/vue-swing#readme",
   "peerDependencies": {
-    "swing": "~3.0.0",
-    "vue": "~2.0.0"
+    "swing": "^3.0.0",
+    "vue": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^4.9.0",
