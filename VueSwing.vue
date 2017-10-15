@@ -2,33 +2,45 @@
   <div>
     <slot></slot>
   </div>
-</div>
 </template>
 
 <script>
 const Swing = require('swing')
 
 export default {
+  name: 'vue-swing',
+
+  props: ['config']
+
   mounted () {
     const stack = Swing.Stack(this.config || {})
 
-    const card = stack.createCard(this.$el)
+    const cards = []
+    for (let el of this.$el.children) {
+      cards.push(stack.createCard(el))
+    }
 
-    card.on('throwout', event => { this.$emit('throwout', event) })
-    card.on('throwoutend', event => { this.$emit('throwoutend', event) })
-    card.on('throwoutdown', event => { this.$emit('throwoutdown', event) })
-    card.on('throwoutleft', event => { this.$emit('throwoutleft', event) })
-    card.on('throwoutright', event => { this.$emit('throwoutright', event) })
-    card.on('throwoutup', event => { this.$emit('throwoutup', event) })
-    card.on('throwin', event => { this.$emit('throwin', event) })
-    card.on('throwinend', event => { this.$emit('throwinend', event) })
-    card.on('dragstart', event => { this.$emit('dragstart', event) })
-    card.on('dragmove', event => { this.$emit('dragmove', event) })
-    card.on('dragend', event => { this.$emit('dragend', event) })
-    card.on('destroyCard', event => { this.$emit('destroyCard', event) })
+    const events = [
+      'throwout',
+      'throwoutend',
+      'throwoutdown',
+      'throwoutleft',
+      'throwoutright',
+      'throwoutup',
+      'throwin',
+      'throwinend',
+      'dragstart',
+      'dragmove',
+      'dragend',
+      'destroyCard'
+    ]
+
+    for (let event of events) {
+      stack.on(event, e => {
+        this.$emit(event, e)
+      })
+    }
   },
-
-  props: ['config']
 }
 </script>
 

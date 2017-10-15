@@ -2,7 +2,7 @@
   "name": "vue-swing",
   "version": "0.0.1",
   "description": "Vue.js wrapper for Swing",
-  "main": "VueSwing.vue",
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/goweiwen/vue-swing.git"
