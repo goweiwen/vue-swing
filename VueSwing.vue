@@ -50,7 +50,11 @@ export default {
 
   beforeDestroy () {
     this.observer.disconnect()
-  }
+  },
+
+  Card: Swing.Card,
+  Direction: Swing.Direction,
+  Stack: Swing.Stack,
 }
 </script>
 

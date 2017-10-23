@@ -36,7 +36,7 @@ VueSwing takes in one `config` Object, which can consist of any of these keys:
 | Name | Description | Default |
 | --- | --- | --- |
 | `isThrowOut` | Invoked in the event of `dragend`. Determines if element is being thrown out of the stack. | Element is considered to be thrown out when `throwOutConfidence` is equal to 1. |
-| `allowedDirections` | Array of directions in which cards can be thrown out. | [Direction.DOWN, Direction.LEFT, Direction.RIGHT, Direction.UP]. |
+| `allowedDirections` | Array of directions in which cards can be thrown out. | [VueSwing.Direction.DOWN, VueSwing.Direction.LEFT, VueSwing.Direction.RIGHT, VueSwing.Direction.UP]. |
 | `throwOutConfidence` | Invoked in the event of `dragmove`. Returns a value between 0 and 1 indicating the completeness of the throw out condition. | Ration of the absolute distance from the original card position and element width. |
 | `throwOutDistance` | Invoked when card is added to the stack. The card is thrown to this offset from the stack. | The value is a random number between `minThrowOutDistance` and `maxThrowOutDistance`. |
 | `minThrowOutDistance` | In effect when `throwOutDistance` is not overwritten. | 450. |
@@ -53,10 +53,10 @@ For more information, look at [Swing's documentation](https://github.com/gajus/s
 | --------------- | ----------------------------------------------------------------------- |
 | `throwout`      | When card has been thrown out of the stack.                             |
 | `throwoutend`   | When card has been thrown out of the stack and the animation has ended. |
-| `throwoutdown`  | Shorthand for `throwout` event in the `Direction.DOWN` direction.       |
-| `throwoutleft`  | Shorthand for `throwout` event in the `Direction.LEFT` direction.       |
-| `throwoutright` | Shorthand for `throwout` event in the `Direction.RIGHT` direction.      |
-| `throwoutup`    | Shorthand for `throwout` event in the `Direction.UP` direction.         |
+| `throwoutdown`  | Shorthand for `throwout` event in the `VueSwing.Direction.DOWN` direction.       |
+| `throwoutleft`  | Shorthand for `throwout` event in the `VueSwing.Direction.LEFT` direction.       |
+| `throwoutright` | Shorthand for `throwout` event in the `VueSwing.Direction.RIGHT` direction.      |
+| `throwoutup`    | Shorthand for `throwout` event in the `VueSwing.Direction.UP` direction.         |
 | `throwin`       | When card has been thrown into the stack.                               |
 | `throwinend`    | When card has been thrown into the stack and the animation has ended.   |
 | `dragstart`     | Hammer [panstart](http://hammerjs.github.io/recognizer-pan/).           |
