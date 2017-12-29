@@ -22,7 +22,8 @@ export default {
 
   mounted () {
     this.stack = Swing.Stack(this.config || {})
-    for (let el of this.$el.children) {
+    let children = [].slice.call(this.$el.children)
+    for (let el of children) {
       this.cards.push(this.stack.createCard(el))
     }
 
