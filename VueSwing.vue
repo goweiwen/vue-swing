@@ -22,9 +22,10 @@ export default {
 
   mounted () {
     this.stack = Swing.Stack(this.config || {})
-    for (let el of this.$el.children) {
+    let children = [...this.$el.children]
+    children.forEach(el => {
       this.cards.push(this.stack.createCard(el))
-    }
+    })
 
     // Observe changes in DOM
     this.observer = new MutationObserver(mutations => {
