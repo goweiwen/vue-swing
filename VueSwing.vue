@@ -30,15 +30,28 @@ export default {
     // Observe changes in DOM
     this.observer = new MutationObserver(mutations => {
       mutations.forEach(({ addedNodes }) =>
-        addedNodes.forEach(el => this.cards.push(this.stack.createCard(el)))
+        addedNodes.forEach(el => {
+          if (this.stack.getCard(el) == null) {
+            this.cards.push(this.stack.createCard(el))
+          }
+        })
       )
     })
     this.observer.observe(this.$el, { childList: true })
 
     // Register events
     const events = [
-      'throwout', 'throwoutend', 'throwoutdown', 'throwoutleft', 'throwoutright',
-      'throwoutup', 'throwin', 'throwinend', 'dragstart', 'dragmove', 'dragend',
+      'throwout',
+      'throwoutend',
+      'throwoutdown',
+      'throwoutleft',
+      'throwoutright',
+      'throwoutup',
+      'throwin',
+      'throwinend',
+      'dragstart',
+      'dragmove',
+      'dragend',
       'destroyCard'
     ]
 
@@ -55,9 +68,10 @@ export default {
 
   Card: Swing.Card,
   Direction: Swing.Direction,
-  Stack: Swing.Stack,
+  Stack: Swing.Stack
 }
 </script>
 
 <style>
+
 </style>
