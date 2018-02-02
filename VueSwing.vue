@@ -29,13 +29,21 @@ export default {
 
     // Observe changes in DOM
     this.observer = new MutationObserver(mutations => {
-      mutations.forEach(({ addedNodes }) =>
+      mutations.forEach(({ addedNodes, removedNodes }) => {
         addedNodes.forEach(el => {
-          if (this.stack.getCard(el) == null) {
+          const card = this.stack.getCard(el)
+          if (card == null) {
             this.cards.push(this.stack.createCard(el))
           }
         })
-      )
+        removedNodes.forEach(el => {
+          const card = this.stack.getCard(el)
+          if (card != null) {
+            this.cards.splice(this.cards.indexOf(card), 1)
+            this.stack.destroyCard(card)
+          }
+        })
+      })
     })
     this.observer.observe(this.$el, { childList: true })
 
