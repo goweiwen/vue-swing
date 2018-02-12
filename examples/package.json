@@ -12,9 +12,13 @@
   "dependencies": {
     "swing": "^3.1.1",
     "vue": "^2.4.4",
-    "vue-swing": "^0.0.7"
+    "vue-swing": "^0.0.9"
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
