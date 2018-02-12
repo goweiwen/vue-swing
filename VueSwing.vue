@@ -29,20 +29,35 @@ export default {
 
     // Observe changes in DOM
     this.observer = new MutationObserver(mutations => {
+      const addedElements = []
+      const removedElements = []
       mutations.forEach(({ addedNodes, removedNodes }) => {
-        addedNodes.forEach(el => {
-          const card = this.stack.getCard(el)
-          if (card == null) {
-            this.cards.push(this.stack.createCard(el))
-          }
-        })
-        removedNodes.forEach(el => {
-          const card = this.stack.getCard(el)
-          if (card != null) {
-            this.cards.splice(this.cards.indexOf(card), 1)
-            this.stack.destroyCard(card)
-          }
-        })
+        addedElements.push(...addedNodes)
+        removedElements.push(...removedNodes)
+      })
+
+      // Create a new card for each new element
+      addedElements.forEach(el => {
+        // Ignore if the added element is also removed
+        const i = removedElements.indexOf(el)
+        if (i !== -1) {
+          removedElements.splice(i, 1)
+          return
+        }
+
+        const card = this.stack.getCard(el)
+        if (card == null) {
+          this.cards.push(this.stack.createCard(el))
+        }
+      })
+
+      // Remove the card if the element is gone
+      removedElements.forEach(el => {
+        const card = this.stack.getCard(el)
+        if (card != null) {
+          this.cards.splice(this.cards.indexOf(card), 1)
+          this.stack.destroyCard(card)
+        }
       })
     })
     this.observer.observe(this.$el, { childList: true })
@@ -83,3 +98,4 @@ export default {
 <style>
 
 </style>
+
