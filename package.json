@@ -1,11 +1,11 @@
 {
-  "name": "vue-swing",
+  "name": "vue-swing2",
   "version": "0.0.9",
   "description": "Vue.js wrapper for Swing",
   "main": "VueSwing.vue",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goweiwen/vue-swing.git"
+    "url": "git+https://github.com/adelura/vue-swing2.git"
   },
   "keywords": [
     "vue",
@@ -17,9 +17,9 @@
   "author": "Goh Wei Wen <goweiwen@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/goweiwen/vue-swing/issues"
+    "url": "https://github.com/adelura/vue-swing2/issues"
   },
-  "homepage": "https://github.com/goweiwen/vue-swing#readme",
+  "homepage": "https://github.com/adelura/vue-swing2#readme",
   "peerDependencies": {
     "swing": "^3.0.0",
     "vue": "^2.0.0"
