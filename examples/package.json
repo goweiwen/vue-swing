@@ -12,7 +12,7 @@
   "dependencies": {
     "swing": "^3.1.1",
     "vue": "^2.4.4",
-    "vue-swing": "^0.0.9"
+    "vue-swing2": "^0.0.9"
   },
   "browserslist": [
     "> 1%",

@@ -47,7 +47,14 @@ export default {
 
         const card = this.stack.getCard(el)
         if (card == null) {
-          this.cards.push(this.stack.createCard(el))
+          const prepend = Array.from(this.$el.children).indexOf(el) === 0
+          const swingCard = this.stack.createCard(el, prepend);
+          if (prepend) {
+            this.cards.unshift(swingCard)
+          }
+          else {
+            this.cards.push(swingCard)
+          }
         }
       })
 
