@@ -22,7 +22,7 @@ export default {
 
   mounted () {
     this.stack = Swing.Stack(this.config || {})
-    let children = [...this.$el.children]
+    let children = Array.prototype.slice.call(this.$el.children)
     children.forEach(el => {
       this.cards.push(this.stack.createCard(el))
     })
