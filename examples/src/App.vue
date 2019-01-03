@@ -45,7 +45,7 @@ export default {
 
   methods: {
     add () {
-      this.cards.push(`${this.cards.length}`)
+      this.cards.push(`${this.cards.length + 1}`)
     },
     remove () {
       this.swing()
