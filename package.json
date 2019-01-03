@@ -1,6 +1,6 @@
 {
   "name": "vue-swing",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Vue.js wrapper for Swing",
   "main": "VueSwing.vue",
   "repository": {
